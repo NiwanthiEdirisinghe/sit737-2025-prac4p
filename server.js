@@ -63,14 +63,15 @@ app.get("/division",(req, res) => {
     try{
         const num1 = parseFloat(req.query.num1);
         const num2 = parseFloat(req.query.num2);
+        validateNumbers(num1, num2, req);
         if(num2 === 0){
             const errorMsg = "Divider cannot be zero.";
             logger.error(`Math Error: ${errorMsg} - Request: ${req.url} - Query: ${JSON.stringify(req.query)}`);
             throw new Error(errorMsg);
         }
-        validateNumbers(num1, num2, req);
+        const result = num1/num2
         logger.info(`Division: ${num1} / ${num2} = ${result}`);
-        res.json({ status: 200, result: num1/num2 });
+        res.json({ status: 200, result: result });
     }catch(error){
         sendErrorResponse(res, 400, error.message);
     }

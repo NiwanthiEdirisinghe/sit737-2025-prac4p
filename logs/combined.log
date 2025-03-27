@@ -1,2 +1,9 @@
 {"level":"error","message":"Math Error: Divider cannot be zero. - Request: /division?num1=5&num2=0 - Query: {\"num1\":\"5\",\"num2\":\"0\"}","service":"calculator-microservice"}
 {"level":"info","message":"Addition: 5 + 3 = 8","service":"calculator-microservice"}
+{"level":"info","message":"Addition: 5 + 3 = 8","service":"calculator-microservice"}
+{"level":"info","message":"Subtraction: 5 - 3 = 2","service":"calculator-microservice"}
+{"level":"info","message":"Multiplication: 5 * 3 = 15","service":"calculator-microservice"}
+{"level":"info","message":"Division: 10 / 2 = 5","service":"calculator-microservice"}
+{"level":"info","message":"Division: 5 / 3 = 1.6666666666666667","service":"calculator-microservice"}
+{"level":"error","message":"Math Error: Divider cannot be zero. - Request: /division?num1=5&num2=0 - Query: {\"num1\":\"5\",\"num2\":\"0\"}","service":"calculator-microservice"}
+{"level":"error","message":"Math Error: Divider cannot be zero. - Request: /division?num1=5&num2=0 - Query: {\"num1\":\"5\",\"num2\":\"0\"}","service":"calculator-microservice"}
