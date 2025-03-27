@@ -78,6 +78,62 @@ app.get("/division",(req, res) => {
    
 });
 
+app.get("/exponentiation", (req, res) => {
+    try {
+        const base = parseFloat(req.query.base);
+        const exponent = parseFloat(req.query.exponent);
+        
+        validateNumbers(req, base, exponent);
+        
+        const result = Math.pow(base, exponent);
+        logger.info(`Exponentiation: ${base} ^ ${exponent} = ${result}`);
+        
+        res.json({ status: 200, result });
+    } catch(error) {
+        sendErrorResponse(res, 400, error.message);
+    }
+});
+
+app.get("/square-root", (req, res) => {
+    try {
+        const number = parseFloat(req.query.number);
+        
+        if (isNaN(number)) {
+            logger.error(`Validation Error: ${errorMsg} - Request: ${req.url} - Query: ${JSON.stringify(req.query)}`);
+            throw new Error("Number must be a valid number.");
+        }else if (number < 0) {
+            throw new Error("Cannot calculate square root of a negative number");
+        }
+        
+        const result = Math.sqrt(number);
+        logger.info(`Square Root: √${number} = ${result}`);
+        
+        res.json({ status: 200, result });
+    } catch(error) {
+        sendErrorResponse(res, 400, error.message);
+    }
+});
+
+app.get("/modulo", (req, res) => {
+    try {
+        const dividend = parseFloat(req.query.dividend);
+        const divisor = parseFloat(req.query.divisor);
+        
+        validateNumbers(req, dividend, divisor);
+        
+        if (divisor === 0) {
+            throw new Error("Modulo by zero is undefined");
+        }
+        
+        const result = dividend % divisor;
+        logger.info(`Modulo: ${dividend} % ${divisor} = ${result}`);
+        
+        res.json({ status: 200, result });
+    } catch(error) {
+        sendErrorResponse(res, 400, error.message);
+    }
+});
+
 const validateNumbers = (num1, num2, req) => {
     if (isNaN(num1) || isNaN(num2)) {
         logger.error(`Validation Error: ${errorMsg} - Request: ${req.url} - Query: ${JSON.stringify(req.query)}`);
