@@ -80,16 +80,16 @@ app.get("/division",(req, res) => {
 
 app.get("/exponentiation", (req, res) => {
     try {
-        const base = parseFloat(req.query.base);
-        const exponent = parseFloat(req.query.exponent);
-        
-        validateNumbers(req, base, exponent);
-        
-        const result = Math.pow(base, exponent);
-        logger.info(`Exponentiation: ${base} ^ ${exponent} = ${result}`);
+        const num1 = parseFloat(req.query.base);
+        const num2 = parseFloat(req.query.exponent);
+
+        validateNumbers(num1, num2, req);
+
+        const result = Math.pow(num1, num2);
+        logger.info(`Exponentiation: ${num1} ^ ${num2} = ${result}`);
         
         res.json({ status: 200, result });
-    } catch(error) {
+    } catch (error) {
         sendErrorResponse(res, 400, error.message);
     }
 });
@@ -119,7 +119,7 @@ app.get("/modulo", (req, res) => {
         const dividend = parseFloat(req.query.dividend);
         const divisor = parseFloat(req.query.divisor);
         
-        validateNumbers(req, dividend, divisor);
+        validateNumbers(dividend, divisor, req);
         
         if (divisor === 0) {
             throw new Error("Modulo by zero is undefined");
