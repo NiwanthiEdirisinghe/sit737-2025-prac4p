@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "Niwanthi Edirisinghe",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "winston": "^3.17.0"
+  }
 }
