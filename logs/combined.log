@@ -11,3 +11,4 @@
 {"level":"info","message":"Exponentiation: 2 ^ 3 = 8","service":"calculator-microservice"}
 {"level":"info","message":"Square Root: √16 = 4","service":"calculator-microservice"}
 {"level":"info","message":"Modulo: 5 % 3 = 2","service":"calculator-microservice"}
+{"level":"info","message":"Addition: 5 + 4 = 9","service":"calculator-microservice"}

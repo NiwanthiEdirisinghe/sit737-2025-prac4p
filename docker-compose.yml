@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/calculator-service
+    container_name: calculator-service-container
+    restart: always
+    ports:
+      - "4026:3000"
+    command: ["node", "server.js"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
